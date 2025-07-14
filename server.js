@@ -1,6 +1,25 @@
+const dotenv = require("dotenv").config()
 const express = require("express")
-
+const mongoose =require("mongoose")
 const app = express();
+const path = require("path")
+
+
+//connection to db
+mongoose.connect(process.env.MONGODB_URI)
+mongoose.connection.on("connected",()=>{
+    console.log(`connect to MONGODB ${mongoose.connection.name}`)
+})
+
+//MIDDLEWARE
+app.use(express.static(path.join(__dirname,"public")))
+app.use(express.urlencoded({ extended: false }));
+
+
+//controllers
+const carController = require("./controllers/carController")
+
+app.use("/cars", carController)
 
 //get test
 app.get("/test" , (req,res) =>{
