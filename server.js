@@ -22,7 +22,7 @@ const carController = require("./controllers/carController")
 app.use("/cars", carController)
 
 //get test
-app.get("/test" , (req,res) =>{
+app.get("/" , (req,res) =>{
     res.render("test.ejs")
 })
 
