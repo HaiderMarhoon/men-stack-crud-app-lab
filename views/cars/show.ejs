@@ -36,10 +36,14 @@
                 <%= foundCar.description %>
             </p>
             <div class="actions">
-                        <form action="/cars/<%=foundCar._id%>?_method=DELETE" method="POST">
-                            <button class="delete-button" type="submit">Delete <%= foundCar.name %> </button>
-                        </form>
-                    </div>
+                <form action="/cars/<%=foundCar._id%>?_method=DELETE" method="POST">
+                    <button class="delete-button" type="submit">Delete <%= foundCar.name %> </button>
+                </form>
+            </div>
+            <a class="edit-link" href="/cars/<%= foundCar._id %>/edit">
+                <div class="edit-text">Edit <%= foundCar.name %>
+                </div>
+            </a>
             <a class="car-index-link" href="/car">
                 <div class="index-link-text">Back to All Businesses</div>
             </a>

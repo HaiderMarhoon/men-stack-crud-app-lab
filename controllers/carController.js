@@ -32,6 +32,9 @@ router.delete("/:carsId", async(req,res)=>{
     await Cars.findByIdAndDelete(req.params.carsId)
     res.redirect("/cars")
 })
-
+router.get("/:carsId/edit", async(req,res) =>{
+    const foundCar =await Cars.findById(req.params.carsId)
+    res.render('cars/edit.ejs', { car: foundCar });
+})
 
 module.exports = router
