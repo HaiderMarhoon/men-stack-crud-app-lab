@@ -37,4 +37,14 @@ router.get("/:carsId/edit", async(req,res) =>{
     res.render('cars/edit.ejs', { car: foundCar });
 })
 
+router.put('/:carId', async (req, res) => {
+	if (req.body.isFavorite === 'on') {
+		req.body.isFavorite = true
+	} else {
+		req.body.isFavorite = false
+	}
+	await Cars.findByIdAndUpdate(req.params.carId, req.body)
+	res.redirect(`/cars/${req.params.carId}`)
+})
+
 module.exports = router
