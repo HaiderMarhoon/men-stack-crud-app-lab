@@ -24,10 +24,14 @@ router.post("/", async (req, res) => {
     res.redirect("/cars")
 })
 
-router.get('/:CarsId', async (req, res) => {
-	const foundCar = await Cars.findById(req.params.CarsId);
-	res.render('cars/show.ejs', { Cars: foundCar });
+router.get('/:carsId', async (req, res) => {
+	const foundCar = await Cars.findById(req.params.carsId);
+	res.render('cars/show.ejs', { foundCar: foundCar });
 });
+router.delete("/:carsId", async(req,res)=>{
+    await Cars.findByIdAndDelete(req.params.carsId)
+    res.redirect("/cars")
+})
 
 
 module.exports = router
