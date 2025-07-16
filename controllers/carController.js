@@ -24,7 +24,10 @@ router.post("/", async (req, res) => {
     res.redirect("/cars")
 })
 
-
+router.get('/:CarsId', async (req, res) => {
+	const foundCar = await Cars.findById(req.params.CarsId);
+	res.render('cars/show.ejs', { Cars: foundCar });
+});
 
 
 module.exports = router

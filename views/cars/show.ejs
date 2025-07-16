@@ -1,0 +1,43 @@
+<!-- views/businesses/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+        <%= car.name %>
+    </title> <!-- Dynamic title based on business name -->
+</head>
+
+<body>
+    <h1>
+        <%= car.name %>
+    </h1>
+    <% if (car.isFavorite) { %> ✅ Favorite <% } %>
+            <p><strong>Model:</strong>
+                <%= car.model %>
+            </p>
+            <p><strong>Make:</strong>
+                <%= car.make %>
+            </p>
+            <p><strong>Color:</strong>
+                <%= car.color %>
+            </p>
+            <p><strong>Year:</strong>
+                <%= car.year %>
+            </p>
+            <p><strong>Price:</strong>
+                <%= car.price %>
+            </p>
+            <p><strong>Description:</strong>
+                <%= car.description %>
+            </p>
+            <a class="car-index-link" href="/car">
+                <div class="index-link-text">Back to All Businesses</div>
+            </a>
+</body>
+
+</html>
